@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @layer properties;
 html {
@@ -8,7 +8,7 @@ html {
   cursor: pointer;
 }
 .tabs__toggle.is-active {
-  background: #e5d2f5;
+  background: #EDF2FB;
 }
 .tabs__content {
   display: none;
@@ -809,6 +809,9 @@ html.lenis, html.lenis body {
   }
   .p-\[3\%\] {
     padding: 3%;
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);

@@ -6,15 +6,15 @@ UPLOAD_SERVICE_DIR := upload-service
 # To run in production mode: make build PROD=true
 PROD ?= false
 
-setup-images-dir:
-	@echo "Ensuring upload-service/images directory exists and has write permission..."
-	@if [ ! -d "$(UPLOAD_SERVICE_DIR)/images" ]; then \
-		mkdir -p "$(UPLOAD_SERVICE_DIR)/images"; \
-		echo "Directory $(UPLOAD_SERVICE_DIR)/images created."; \
-	else \
-		echo "Directory $(UPLOAD_SERVICE_DIR)/images already exists."; \
-	fi; \
-	chmod 777 "$(UPLOAD_SERVICE_DIR)/images"
+# setup-images-dir:
+# 	@echo "Ensuring upload-service/images directory exists and has write permission..."
+# 	@if [ ! -d "$(UPLOAD_SERVICE_DIR)/images" ]; then \
+# 		mkdir -p "$(UPLOAD_SERVICE_DIR)/images"; \
+# 		echo "Directory $(UPLOAD_SERVICE_DIR)/images created."; \
+# 	else \
+# 		echo "Directory $(UPLOAD_SERVICE_DIR)/images already exists."; \
+# 	fi; \
+# 	chmod 777 "$(UPLOAD_SERVICE_DIR)/images"
 
 # Target to build and start the Docker Compose application
 build:
@@ -25,7 +25,8 @@ ifeq ($(PROD), false)
 endif
 	@echo "Docker Compose application is running."
 
-initial_build: setup-images-dir build
+# initial_build: setup-images-dir build
+initial_build: build
 
 up:
 	@echo "Building and starting Docker Compose application..."
@@ -53,4 +54,5 @@ destroy_project:
 	rm -rf $(FRONTEND_DIR)/src/output.css $(FRONTEND_DIR)/node_modules/
 	@echo "Clean-up complete."
 
-.PHONY: setup-images-dir initial_build build up down rebuild destroy_project
+# .PHONY: setup-images-dir initial_build build up down rebuild destroy_project
+.PHONY: initial_build build up down rebuild destroy_project
