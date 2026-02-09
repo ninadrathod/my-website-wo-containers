@@ -53,6 +53,24 @@
     },
     {
       "category": "certificates",
+      "cert_title": "AWK Essential Training",
+      "offering_organization": "LinkedIn",
+      "certification_month_year": "2026-01"
+    },
+    {
+      "category": "certificates",
+      "cert_title": "Docker Foundations Professional Certificate",
+      "offering_organization": "Docker, Inc",
+      "certification_month_year": "2025-07"
+    },
+    {
+      "category": "certificates",
+      "cert_title": "Concurrent and Parallel Programming in Python",
+      "offering_organization": "Udemy",
+      "certification_month_year": "2025-05"
+    },
+    {
+      "category": "certificates",
       "cert_title": "MATLAB Onramp",
       "offering_organization": "MathWorks",
       "certification_month_year": "2023-07"

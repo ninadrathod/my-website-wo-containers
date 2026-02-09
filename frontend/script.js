@@ -486,6 +486,40 @@ function displayPublication(publicationData, containerId) {
     container.textContent = 'No publication data available.';
   }
 }
+
+function displayCertificates(certificatesData, containerId) {
+  const container = document.getElementById(containerId); // Re-select inside here
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (certificatesData && certificatesData.length > 0) {
+    certificatesData.forEach(certificate => {
+      const certificatesDiv = document.createElement('div');
+      certificatesDiv.classList.add('text-seashell','rounded-md','text-center','items-center','p-[2%]');
+
+              const certTitle = document.createElement('p');
+              certTitle.classList.add('montserrat-regular','text-sm','md:text-md','lg:text-lg','mb-[1%]');
+              certTitle.textContent = certificate.cert_title;
+
+              const offeredBy = document.createElement('p');
+              offeredBy.classList.add('montserrat-light', 'mb-[1%]','text-sm','md:text-md','lg:text-lg','opacity-[70%]');
+              offeredBy.textContent = `Offered by: ${certificate.offering_organization}`;
+
+              const certDate = document.createElement('p');
+              certDate.classList.add('montserrat-light-i', 'mb-[1%]','text-sm','md:text-md','lg:text-lg','opacity-[70%]');
+              certDate.textContent = `Completed: ${certificate.certification_month_year}`;
+
+      certificatesDiv.appendChild(certTitle);
+      certificatesDiv.appendChild(offeredBy);
+      certificatesDiv.appendChild(certDate);
+
+      container.appendChild(certificatesDiv);
+    });
+  } else {
+    container.textContent = 'No certificates data available.';
+  }
+}
+
 // ------------ End of helper functions for my data --------------------------
 
 // ======================= DOMContentLoaded Listener ============================
@@ -533,7 +567,8 @@ async function initializeMyInfoContent() {
     fetchAndDisplayCards('projects', 'projects-container', displayProjects),
     fetchAndDisplayCards('technical_skills', 'skills-container', displaySkills),
     fetchAndDisplayCards('areas_of_interest', 'areas-of-interest-container', displayInterestAreas),
-    fetchAndDisplayCards('publication', 'publication-container', displayPublication),
+    //fetchAndDisplayCards('publication', 'publication-container', displayPublication),
+    fetchAndDisplayCards('certificates', 'certificates-container', displayCertificates),
     fetchAndDisplayCards('extracurricular_activities', 'extracurricular-container', displayExtracurricularActivities),
     fetchAndDisplayCards('positions_of_responsibilities', 'por-container', displayPOR)
   ]);
