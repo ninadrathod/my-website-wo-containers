@@ -493,9 +493,12 @@ function displayCertificates(certificatesData, containerId) {
   container.innerHTML = '';
 
   if (certificatesData && certificatesData.length > 0) {
+
+    container.classList.add('columns-1','md:columns-3','gap-4','space-y-4');
+
     certificatesData.forEach(certificate => {
       const certificatesDiv = document.createElement('div');
-      certificatesDiv.classList.add('text-seashell','rounded-md','text-center','items-center','p-[2%]');
+      certificatesDiv.classList.add('text-seashell','rounded-md','text-center','items-center','p-[4%]','break-inside-avoid');
 
               const certTitle = document.createElement('p');
               certTitle.classList.add('montserrat-regular','text-sm','md:text-md','lg:text-lg','mb-[1%]');

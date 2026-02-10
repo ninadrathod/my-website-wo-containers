@@ -70,12 +70,6 @@
       "certification_month_year": "2025-05"
     },
     {
-      "category": "certificates",
-      "cert_title": "MATLAB Onramp",
-      "offering_organization": "MathWorks",
-      "certification_month_year": "2023-07"
-    },
-    {
         "category": "certificates",
         "cert_title": "Problem Solving (Basic)",
         "offering_organization": "HackerRank",
