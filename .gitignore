@@ -1,14 +1,2 @@
-backend/node_modules/
-backend/package-lock.json
-backend/.env
-upload-service/node_modules/
-upload-service/package-lock.json
-upload-service/images/
-upload-service/.env
-frontend/node_modules/
-frontend/package-lock.json
 venv/
 roughwork.txt
-nginx/certificate.crt
-nginx/private.key
-pull_logs/

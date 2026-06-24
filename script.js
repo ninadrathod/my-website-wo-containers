@@ -1,20 +1,24 @@
 // scrolling transitions
-// Initialize a new Lenis instance for smooth scrolling
-const lenis = new Lenis({
-  damping: 0.5,
-});
+// Keep data rendering independent from animation libraries.
+if (window.Lenis && window.gsap && window.ScrollTrigger) {
+  const lenis = new Lenis({
+    damping: 0.5,
+  });
 
-// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-lenis.on('scroll', ScrollTrigger.update);
+  // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+  lenis.on('scroll', ScrollTrigger.update);
 
-// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-// This ensures Lenis's smooth scroll animation updates on each GSAP tick
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
-});
+  // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+  // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+  });
 
-// Disable lag smoothing in GSAP to prevent any delay in scroll animations
-gsap.ticker.lagSmoothing(0);
+  // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+  gsap.ticker.lagSmoothing(0);
+} else {
+  console.warn('Animation libraries unavailable; continuing without smooth scroll.');
+}
 
 //---------------
 
@@ -28,15 +32,41 @@ const mainContent = document.querySelector('main'); // Main content area
 const tabsContentContainer = document.getElementById('tabs-content-container');
 const tabToggles = document.querySelectorAll('.tabs__toggle');
 
-// Base URL for your main backend service (resume data)
+// Local JSON data paths (static site — no backend server)
+const METADATA_URL = './backend/metadata.json';
+const DATA_URL = './backend/data.json';
 
-const PUBLIC_IP = 'http://localhost';
-const BACKEND_PORT = 3001;
-//const UPLOAD_SERVICE_PORT = 3002;
-const PROD = false;
+let metadataCache = null;
+let dataCache = null;
 
-const MAIN_BACKEND_API_URL = `${PUBLIC_IP}:${BACKEND_PORT}`; 
-//const UPLOAD_SERVICE_API_URL = `${PUBLIC_IP}:${UPLOAD_SERVICE_PORT}`;
+async function loadMetadata() {
+  if (window.location.protocol === 'file:') {
+    throw new Error('Open via a local server (for example: python3 -m http.server 8080).');
+  }
+  if (!metadataCache) {
+    const response = await fetch(METADATA_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to load metadata: ${response.statusText}`);
+    }
+    const json = await response.json();
+    metadataCache = json[0];
+  }
+  return metadataCache;
+}
+
+async function loadData() {
+  if (window.location.protocol === 'file:') {
+    throw new Error('Open via a local server (for example: python3 -m http.server 8080).');
+  }
+  if (!dataCache) {
+    const response = await fetch(DATA_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to load data: ${response.statusText}`);
+    }
+    dataCache = await response.json();
+  }
+  return dataCache;
+}
 
 // Mapping of tab data-target to their respective HTML file paths
 const tabContentFileMap = {
@@ -105,17 +135,12 @@ async function fetchAndDisplayProperty(property, displayPropertyId) {
     return; // Don't throw error if element isn't found, just skip
   }
   try {
-
-    let apiUrl = `${MAIN_BACKEND_API_URL}/backend-api/metadata/${property}`; 
-    if(PROD){
-      apiUrl = `/backend-api/metadata/${property}`;
+    const metadata = await loadMetadata();
+    if (metadata && metadata[property] !== undefined) {
+      element.textContent = metadata[property];
+    } else {
+      element.textContent = `No ${property} data available.`;
     }
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    element.textContent = data.data;
   } catch (error) {
     console.error(`Error fetching ${property}:`, error);
     element.textContent = `Failed to load ${property}.`;
@@ -129,24 +154,17 @@ async function fetchAndReturnLink(property, linkElementId) {
     return;
   }
   try {
-    let apiUrl = `${MAIN_BACKEND_API_URL}/backend-api/metadata/${property}`;
-    if(PROD){
-      apiUrl = `/backend-api/metadata/${property}`;
-    }
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    if (data.data) {
+    const metadata = await loadMetadata();
+    const value = metadata && metadata[property];
+    if (value) {
       if (property === 'email_id') {
-        linkElement.href = `mailto:${data.data}`;
+        linkElement.href = `mailto:${value}`;
       } else {
-        linkElement.href = data.data;
+        linkElement.href = value;
       }
     } else {
-        linkElement.href = '#'; // Set a default or empty link if no data
-        console.warn(`No data received for link property: ${property}`);
+      linkElement.href = '#';
+      console.warn(`No data received for link property: ${property}`);
     }
   } catch (error) {
     console.error(`Error fetching ${property} link:`, error);
@@ -162,17 +180,10 @@ async function fetchAndDisplayCards(category, containerId, displayFunction) {
   }
   container.innerHTML = `Loading ${category} data...`; // Loading message
   try {
-    let apiUrl = `${MAIN_BACKEND_API_URL}/backend-api/data/${category}`;
-    if(PROD){
-      apiUrl = `/backend-api/data/${category}`;
-    }
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    if (data.data && data.data.length > 0) {
-      displayFunction(data.data, containerId); // Call specific display function
+    const allData = await loadData();
+    const filteredData = allData.filter(item => item.category === category);
+    if (filteredData.length > 0) {
+      displayFunction(filteredData, containerId);
     } else {
       container.textContent = `No ${category} data available.`;
     }
