@@ -89,6 +89,13 @@
     },
     {
       "category": "projects",
+      "project_title": "Deploy Simulator",
+      "type": "Independent",
+      "course_or_domain": "Domain: CI/CD & DevOps",
+      "project_description": "Deploy Simulator is a Python project that simulates CI/CD deployment pipelines with a FastAPI backend and a live web dashboard. It models deployments across multiple services with a two-phase lifecycle—running and completed—and tracks outcomes such as success, failure, and rollback. The app exposes a REST API for managing deployments, computing metrics like success rate and p95 duration, and detecting anomalous runs. A background dummy generator produces synthetic deployment traffic, while Pydantic validates all data and an in-memory store with thread-safe operations keeps the simulator lightweight and easy to run locally."
+    },
+    {
+      "category": "projects",
       "project_title": "CoFlow",
       "type": "Independent",
       "course_or_domain": "Domain: Parallel Processing",
