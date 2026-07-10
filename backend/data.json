@@ -89,6 +89,13 @@
     },
     {
       "category": "projects",
+      "project_title": "Codex of Colour",
+      "type": "Independent",
+      "course_or_domain": "Domain: Image Processing & Frontend",
+      "project_description": "Codex of Colour is a browser-based studio that extracts color palettes from an uploaded image using k-means clustering—entirely client-side, with no backend. It samples opaque pixels, runs multiple k-means trials to pick the lowest-error centers, then deduplicates near-identical hues and sorts them by luminance to produce studies of 3, 5, 7, and 10 colors. Users can preview the source image, copy hex values from swatches, and download individual or combined palettes as parchment-styled PNG exports. An architecture page documents the algorithm and data flow, and the app is a lightweight static site that runs locally or on GitHub Pages."
+    },
+    {
+      "category": "projects",
       "project_title": "Deploy Simulator",
       "type": "Independent",
       "course_or_domain": "Domain: CI/CD & DevOps",
