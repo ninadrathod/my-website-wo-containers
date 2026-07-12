@@ -323,12 +323,13 @@ function displayProjects(projectsData, containerId) {
         projectLink.href = project.link;
         projectLink.target = '_blank';
         projectLink.rel = 'noopener noreferrer';
-        projectLink.classList.add('inline-block', 'align-middle');
+        projectLink.classList.add('inline-flex', 'items-center');
         const linkIcon = document.createElement('img');
         linkIcon.src = './icons/external-link.svg';
         linkIcon.alt = 'Open project';
         linkIcon.classList.add('project-link-icon');
         projectLink.appendChild(linkIcon);
+        projectTitle.classList.add('inline-flex', 'items-center');
         projectTitle.appendChild(projectLink);
       }
       

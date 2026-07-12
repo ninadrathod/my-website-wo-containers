@@ -1362,7 +1362,7 @@ html.lenis, html.lenis body {
     padding: 2%;
   }
   .project-link-icon {
-    display: inline;
+    display: block;
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
     margin-left: calc(var(--spacing) * 3);
