@@ -323,7 +323,7 @@ function displayProjects(projectsData, containerId) {
         projectLink.href = project.link;
         projectLink.target = '_blank';
         projectLink.rel = 'noopener noreferrer';
-        projectLink.classList.add('inline-block', 'ml-2', 'align-middle');
+        projectLink.classList.add('inline-block', 'align-middle');
         const linkIcon = document.createElement('img');
         linkIcon.src = './icons/external-link.svg';
         linkIcon.alt = 'Open project';
