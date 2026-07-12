@@ -207,6 +207,10 @@ html.lenis body {
     .project-card {
       @apply p-[2%] my-[2.5%];
     }
+
+    .project-link-icon {
+      @apply inline w-3 h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 opacity-70 hover:opacity-100;
+    }
     
     .gradient-deep-ocean-twilight {
     @apply bg-gradient-to-r from-blue-950 via-indigo-900 to-purple-900;

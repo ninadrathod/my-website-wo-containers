@@ -327,7 +327,7 @@ function displayProjects(projectsData, containerId) {
         const linkIcon = document.createElement('img');
         linkIcon.src = './icons/external-link.svg';
         linkIcon.alt = 'Open project';
-        linkIcon.classList.add('w-3.5', 'h-3.5', 'md:w-4', 'md:h-4', 'inline', 'opacity-70', 'hover:opacity-100');
+        linkIcon.classList.add('project-link-icon');
         projectLink.appendChild(linkIcon);
         projectTitle.appendChild(projectLink);
       }
