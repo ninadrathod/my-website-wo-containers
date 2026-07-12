@@ -92,35 +92,40 @@
       "project_title": "Codex of Colour",
       "type": "Independent",
       "course_or_domain": "Domain: Image Processing & Frontend",
-      "project_description": "Codex of Colour is a browser-based studio that extracts color palettes from an uploaded image using k-means clustering—entirely client-side, with no backend. It samples opaque pixels, runs multiple k-means trials to pick the lowest-error centers, then deduplicates near-identical hues and sorts them by luminance to produce studies of 3, 5, 7, and 10 colors. Users can preview the source image, copy hex values from swatches, and download individual or combined palettes as parchment-styled PNG exports. An architecture page documents the algorithm and data flow, and the app is a lightweight static site that runs locally or on GitHub Pages."
+      "project_description": "Codex of Colour is a browser-based studio that extracts color palettes from an uploaded image using k-means clustering—entirely client-side, with no backend. It samples opaque pixels, runs multiple k-means trials to pick the lowest-error centers, then deduplicates near-identical hues and sorts them by luminance to produce studies of 3, 5, 7, and 10 colors. Users can preview the source image, copy hex values from swatches, and download individual or combined palettes as parchment-styled PNG exports. An architecture page documents the algorithm and data flow, and the app is a lightweight static site that runs locally or on GitHub Pages.",
+      "link": "https://codex-of-colour.meverse.in/"
     },
     {
       "category": "projects",
       "project_title": "Deploy Simulator",
       "type": "Independent",
       "course_or_domain": "Domain: CI/CD & DevOps",
-      "project_description": "Deploy Simulator is a Python project that simulates CI/CD deployment pipelines with a FastAPI backend and a live web dashboard. It models deployments across multiple services with a two-phase lifecycle—running and completed—and tracks outcomes such as success, failure, and rollback. The app exposes a REST API for managing deployments, computing metrics like success rate and p95 duration, and detecting anomalous runs. A background dummy generator produces synthetic deployment traffic, while Pydantic validates all data and an in-memory store with thread-safe operations keeps the simulator lightweight and easy to run locally."
+      "project_description": "Deploy Simulator is a Python project that simulates CI/CD deployment pipelines with a FastAPI backend and a live web dashboard. It models deployments across multiple services with a two-phase lifecycle—running and completed—and tracks outcomes such as success, failure, and rollback. The app exposes a REST API for managing deployments, computing metrics like success rate and p95 duration, and detecting anomalous runs. A background dummy generator produces synthetic deployment traffic, while Pydantic validates all data and an in-memory store with thread-safe operations keeps the simulator lightweight and easy to run locally.",
+      "link": "https://deploy-simulator.meverse.in/"
     },
     {
       "category": "projects",
       "project_title": "CoFlow",
       "type": "Independent",
       "course_or_domain": "Domain: Parallel Processing",
-      "project_description": "CoFlow is a Python project designed to simplify the execution of tasks in parallel using a custom class. It helps you manage and trigger processes concurrently, which can significantly speed up your workflows.  It leverages multiprocessing to run tasks concurrently, managing dependencies and ensuring safe, reliable operation."
+      "project_description": "CoFlow is a Python project designed to simplify the execution of tasks in parallel using a custom class. It helps you manage and trigger processes concurrently, which can significantly speed up your workflows.  It leverages multiprocessing to run tasks concurrently, managing dependencies and ensuring safe, reliable operation.",
+      "link": "https://github.com/ninadrathod/co-flow"
     },
     {
       "category": "projects",
       "project_title": "Linux Kernel Compilation Performance Benchmarking",
       "type": "Academic",
       "course_or_domain": "Course: Contemporary Computing Platforms",
-      "project_description": "This project's core purpose is to benchmark Linux kernel compilation performance across different computing platforms. It automates the entire process: first, it ensures the Linux kernel source code is downloaded and extracted. Then, it initiates the kernel compilation, meticulously measuring key performance metrics like CPU utilization, memory consumption, and total runtime. After each run, it cleans up generated files to maintain a consistent environment."
+      "project_description": "This project's core purpose is to benchmark Linux kernel compilation performance across different computing platforms. It automates the entire process: first, it ensures the Linux kernel source code is downloaded and extracted. Then, it initiates the kernel compilation, meticulously measuring key performance metrics like CPU utilization, memory consumption, and total runtime. After each run, it cleans up generated files to maintain a consistent environment.",
+      "link": "https://github.com/ninadrathod/compare-performance-of-different-computing-platforms"
     },
     {
       "category": "projects",
       "project_title": "Secondary Memory-Based Implementation of Shortest Path Algorithm",
       "type": "Academic",
       "course_or_domain": "Course: PG Lab",
-      "project_description": "In this project, the disk blocks in a secondary memory have been depicted as text files, with node and edge details stored in these files. Every file will hold limited tuples (node/edge details). Consecutive blocks are linked to each other using links in the file. I efficiently implemented Dijkstra’s algorithm to find the shortest path between the source and destination nodes. We tested the solution on a graph with 50000 nodes, thus can be scaled."
+      "project_description": "In this project, the disk blocks in a secondary memory have been depicted as text files, with node and edge details stored in these files. Every file will hold limited tuples (node/edge details). Consecutive blocks are linked to each other using links in the file. I efficiently implemented Dijkstra’s algorithm to find the shortest path between the source and destination nodes. We tested the solution on a graph with 50000 nodes, thus can be scaled.",
+      "link": "https://github.com/ninadrathod/Dijkstra-s-Algorithm-on-Secondary-Memory"
     },
     {
       "category": "technical_skills",

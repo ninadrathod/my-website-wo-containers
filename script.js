@@ -317,6 +317,20 @@ function displayProjects(projectsData, containerId) {
       const projectTitle = document.createElement('p');
       projectTitle.classList.add('montserrat-regular','text-sm','md:text-md','lg:text-lg');
       projectTitle.textContent = project.project_title;
+
+      if (project.link) {
+        const projectLink = document.createElement('a');
+        projectLink.href = project.link;
+        projectLink.target = '_blank';
+        projectLink.rel = 'noopener noreferrer';
+        projectLink.classList.add('inline-block', 'ml-2', 'align-middle');
+        const linkIcon = document.createElement('img');
+        linkIcon.src = './icons/external-link.svg';
+        linkIcon.alt = 'Open project';
+        linkIcon.classList.add('w-3.5', 'h-3.5', 'md:w-4', 'md:h-4', 'inline', 'opacity-70', 'hover:opacity-100');
+        projectLink.appendChild(linkIcon);
+        projectTitle.appendChild(projectLink);
+      }
       
       const domain = document.createElement('p');
       domain.classList.add('montserrat-light','my-[0.5%]','text-sm','md:text-md','lg:text-lg');
