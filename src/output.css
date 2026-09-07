@@ -1295,9 +1295,9 @@ html.lenis, html.lenis body {
   .card {
     margin-inline: calc(var(--spacing) * 5);
     display: flex;
-    width: 70%;
+    width: 85%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: var(--radius-2xl);
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -1339,8 +1339,33 @@ html.lenis, html.lenis body {
         box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
       }
     }
+    @media (width >= 48rem) {
+      width: 75%;
+    }
     @media (width >= 64rem) {
       width: 30%;
+    }
+  }
+  .card-highlights {
+    margin-top: calc(var(--spacing) * 3);
+    width: 100%;
+    list-style-type: disc;
+    padding-inline-start: calc(var(--spacing) * 5);
+    text-align: left;
+    font-size: var(--text-xs);
+    line-height: 1.375;
+  }
+  .card-highlights > li + li {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  @media (width >= 48rem) {
+    .card-highlights {
+      font-size: var(--text-sm);
+    }
+  }
+  @media (width >= 64rem) {
+    .card-highlights {
+      font-size: var(--text-base);
     }
   }
   .left {

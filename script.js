@@ -229,17 +229,24 @@ function displayWorkExperience(workExperienceData, containerId) {
       const to_month_year = experience.to_month_year ? ' to ' + experience.to_month_year : ' to Present'
       durationPara.textContent = `${experience.from_month_year}${to_month_year}`;
 
-      const responsibilitiesPara = document.createElement('p');
-        responsibilitiesPara.classList.add('mt-3');
-        const responsibilitiesParagraph = document.createElement('span');
-        responsibilitiesParagraph.classList.add('montserrat-light','text-xs','md:text-sm','lg:text-md');
-        responsibilitiesParagraph.innerHTML = `${experience.responsibilities}`;
-        responsibilitiesPara.appendChild(responsibilitiesParagraph);
+      const highlights = Array.isArray(experience.highlights) && experience.highlights.length > 0
+        ? experience.highlights
+        : (experience.responsibilities ? [experience.responsibilities] : []);
 
       experienceDiv.appendChild(headingPara);
       experienceDiv.appendChild(durationPara);
       experienceDiv.appendChild(rolePara);
-      experienceDiv.appendChild(responsibilitiesPara);
+
+      if (highlights.length > 0) {
+        const highlightsList = document.createElement('ul');
+        highlightsList.classList.add('card-highlights', 'montserrat-light', 'text-xs', 'md:text-sm', 'lg:text-md');
+        highlights.forEach(point => {
+          const item = document.createElement('li');
+          item.textContent = point;
+          highlightsList.appendChild(item);
+        });
+        experienceDiv.appendChild(highlightsList);
+      }
       
       container.appendChild(experienceDiv);
     });

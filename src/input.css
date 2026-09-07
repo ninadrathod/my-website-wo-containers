@@ -193,7 +193,15 @@ html.lenis body {
     }
 
     .card {
-        @apply flex flex-col justify-center p-[3%] rounded-2xl w-[70%] lg:w-[30%] mx-5 border-1 border-gray-400 hover:bg-light-purple hover:border-palette-mid-dark-purple hover:text-dark-purple hover:shadow-2xl hover:scale-105 transition-all duration-100 ease-in-out;
+        @apply flex flex-col justify-start p-[3%] rounded-2xl w-[85%] md:w-[75%] lg:w-[30%] mx-5 border-1 border-gray-400 hover:bg-light-purple hover:border-palette-mid-dark-purple hover:text-dark-purple hover:shadow-2xl hover:scale-105 transition-all duration-100 ease-in-out;
+    }
+
+    .card-highlights {
+        @apply mt-3 w-full text-left list-disc pl-5;
+    }
+
+    .card-highlights li + li {
+        @apply mt-2 leading-snug;
     }
 
     .left {
