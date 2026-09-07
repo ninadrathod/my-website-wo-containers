@@ -4,6 +4,25 @@ html {
   overflow-y: auto;
 }
 
+#summary-display {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+@media (width >= 48rem) {
+  #summary-display {
+    font-size: 1.3125rem;
+    line-height: 1.8;
+  }
+}
+
+@media (width >= 64rem) {
+  #summary-display {
+    font-size: 1.4375rem;
+    line-height: 1.75;
+  }
+}
+
 .tabs__toggle{
   cursor: pointer;
 }
