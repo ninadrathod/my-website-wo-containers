@@ -204,6 +204,62 @@ html.lenis body {
         @apply mt-2 leading-snug;
     }
 
+    .skill-badge-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        margin-inline: auto;
+        gap: 0.65rem 0.75rem;
+    }
+
+    .skill-badge {
+        @apply inline-block rounded-full border-2 montserrat-regular tracking-wider;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.875rem;
+        transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .skill-badge:hover {
+        background-color: var(--color-light-purple);
+        transform: scale(1.05);
+        box-shadow: 0 8px 18px rgb(17 42 70 / 0.12);
+    }
+
+    .skill-badge--languages {
+        border-color: var(--color-palette-mid-dark-purple);
+    }
+
+    .skill-badge--platform {
+        border-color: var(--color-dark-purple);
+    }
+
+    .skill-badge--operations {
+        border-color: var(--color-gray-400);
+    }
+
+    .skill-badge--design {
+        border-color: var(--color-sunset-orange);
+    }
+
+    @media (width >= 48rem) {
+        .skill-badge {
+            padding: 0.55rem 1.25rem;
+            font-size: 0.9375rem;
+        }
+    }
+
+    @media (width >= 64rem) {
+        .skill-badge-list {
+            width: 80%;
+            gap: 0.75rem 0.9rem;
+        }
+        .skill-badge {
+            padding: 0.6rem 1.35rem;
+            font-size: 1rem;
+        }
+    }
+
     .left {
         @apply w-[50%] text-right py-[2%] pr-[2%] text-seashell;
     }

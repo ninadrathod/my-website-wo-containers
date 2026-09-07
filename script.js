@@ -44,7 +44,7 @@ async function loadMetadata() {
     throw new Error('Open via a local server (for example: python3 -m http.server 8080).');
   }
   if (!metadataCache) {
-    const response = await fetch(METADATA_URL);
+    const response = await fetch(METADATA_URL, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load metadata: ${response.statusText}`);
     }
@@ -59,7 +59,7 @@ async function loadData() {
     throw new Error('Open via a local server (for example: python3 -m http.server 8080).');
   }
   if (!dataCache) {
-    const response = await fetch(DATA_URL);
+    const response = await fetch(DATA_URL, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load data: ${response.statusText}`);
     }
@@ -87,7 +87,7 @@ async function loadTabContent(filePath) {
   tabsContentContainer.innerHTML = 'Loading content...'; // Display loading message
 
   try {
-    const response = await fetch(filePath);
+    const response = await fetch(`${filePath}?v=skills5`, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
     }
@@ -443,44 +443,37 @@ function displayPOR(porData, containerId) {
   }
 }
 
+const SKILL_TYPE_CLASS = {
+  languages: 'skill-badge--languages',
+  platform: 'skill-badge--platform',
+  operations: 'skill-badge--operations',
+  design: 'skill-badge--design'
+};
+
 function displaySkills(skillsData, containerId) {
   const container = document.getElementById(containerId); // Re-select inside here
   if (!container) return;
   container.innerHTML = '';
 
-  if (skillsData && skillsData.length > 0) {
-    skillsData.forEach(skill => {
-      const skillsDiv = document.createElement('div');
-      skillsDiv.classList.add('my-[7.5%]');
-
-      const skillType = document.createElement('p');
-      skillType.classList.add('montserrat-regular','text-sm','md:text-md','lg:text-lg');
-      skillType.textContent = skill.type;
-      
-      // Create a list for specific skills
-      const specificListDiv = document.createElement('div');
-      specificListDiv.classList.add('montserrat-light-i','ml-[3%]','mt-[1%]','text-sm','md:text-md','lg:text-lg'); // Indent the list
-
-      if (skill.specific_list && skill.specific_list.length > 0) {
-        skill.specific_list.forEach(name => {
-          const skillItem = document.createElement('p');
-          skillItem.textContent = name;
-          specificListDiv.appendChild(skillItem);
-        });
-      } else {
-        const noSkillsMessage = document.createElement('p');
-        noSkillsMessage.textContent = "No specific skills listed for this category.";
-        specificListDiv.appendChild(noSkillsMessage);
-      }
-
-      skillsDiv.appendChild(skillType);
-      skillsDiv.appendChild(specificListDiv);
-      
-      container.appendChild(skillsDiv);
+  const badges = [];
+  (skillsData || []).forEach(group => {
+    const names = group.skills || group.specific_list || [];
+    names.forEach(name => {
+      badges.push({ name, type: group.type });
     });
-  } else {
+  });
+
+  if (badges.length === 0) {
     container.textContent = 'No skill data available.';
+    return;
   }
+
+  badges.forEach(({ name, type }) => {
+    const badge = document.createElement('span');
+    badge.classList.add('skill-badge', SKILL_TYPE_CLASS[type] || 'skill-badge--platform');
+    badge.textContent = name;
+    container.appendChild(badge);
+  });
 }
 
 function displayPublication(publicationData, containerId) {

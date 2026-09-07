@@ -142,18 +142,23 @@
     },
     {
       "category": "technical_skills",
-      "type": "Programming Languages",
-      "specific_list": ["Python", "C/C++", "Javascript"]
+      "type": "languages",
+      "skills": ["Python", "JavaScript", "Shell", "C/C++", "REST API", "Full-stack web dev"]
     },
     {
       "category": "technical_skills",
-      "type": "Data Analysis and Mining",
-      "specific_list": ["Splunk SSL","MS Excel"]
+      "type": "platform",
+      "skills": ["Git", "GitHub Actions", "Docker", "Linux", "Perforce", "IaaS automation", "Microservices"]
     },
     {
-        "category": "technical_skills",
-        "type": "Tools/Operating Systems",
-        "specific_list": ["Linux Shell","Docker Containerization","Splunk","GIMP/Adobe Photoshop"]
+      "category": "technical_skills",
+      "type": "operations",
+      "skills": ["CI/CD", "Splunk", "Monitoring & alerting", "Incident response", "Agentic AI"]
+    },
+    {
+      "category": "technical_skills",
+      "type": "design",
+      "skills": ["GIMP", "Adobe Photoshop"]
     },
     {
       "category": "areas_of_interest",

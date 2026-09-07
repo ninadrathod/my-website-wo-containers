@@ -148,6 +148,7 @@ html.lenis, html.lenis body {
     --color-dark-purple: #112A46;
     --color-light-purple: #e5d2f5;
     --color-seashell: #FFF5EE;
+    --color-sunset-orange: #FA5F55;
     --animate-draw-stroke: 5s ease-in infinite draw-stroke;
   }
 }
@@ -1367,6 +1368,66 @@ html.lenis, html.lenis body {
     .card-highlights {
       font-size: var(--text-base);
     }
+  }
+  .skill-badge-list {
+    display: flex;
+    width: 90%;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem 0.75rem;
+  }
+  @media (width >= 64rem) {
+    .skill-badge-list {
+      width: 80%;
+      gap: 0.75rem 0.9rem;
+    }
+  }
+  .skill-badge {
+    display: inline-block;
+    border-radius: calc(infinity * 1px);
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+    padding: 0.45rem 1.1rem;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-wider);
+    transition-property: background-color, transform, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+  }
+  @media (width >= 48rem) {
+    .skill-badge {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.9375rem;
+    }
+  }
+  @media (width >= 64rem) {
+    .skill-badge {
+      padding: 0.6rem 1.35rem;
+      font-size: 1rem;
+    }
+  }
+  .skill-badge:hover {
+    background-color: var(--color-light-purple);
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgb(17 42 70 / 0.12);
+  }
+  .skill-badge--languages {
+    border-color: var(--color-palette-mid-dark-purple);
+  }
+  .skill-badge--platform {
+    border-color: var(--color-dark-purple);
+  }
+  .skill-badge--operations {
+    border-color: var(--color-gray-400);
+  }
+  .skill-badge--design {
+    border-color: var(--color-sunset-orange);
   }
   .left {
     width: 50%;
