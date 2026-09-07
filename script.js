@@ -87,7 +87,7 @@ async function loadTabContent(filePath) {
   tabsContentContainer.innerHTML = 'Loading content...'; // Display loading message
 
   try {
-    const response = await fetch(`${filePath}?v=skills5`, { cache: 'no-store' });
+    const response = await fetch(`${filePath}?v=edu1`, { cache: 'no-store' });
     if (!response.ok) {
       throw new Error(`Failed to load ${filePath}: ${response.statusText}`);
     }
@@ -360,23 +360,6 @@ function displayProjects(projectsData, containerId) {
   }
 }
 
-function displayInterestAreas(interestAreasData, containerId) {
-  const container = document.getElementById(containerId); // Re-select inside here
-  if (!container) return;
-  container.innerHTML = '';
-
-  if (interestAreasData && interestAreasData.length > 0) {
-    interestAreasData.forEach(interest => {
-      const interestsDiv = document.createElement('div');
-      interestsDiv.classList.add('my-[2.5%]','montserrat-light-i','text-seashell','text-sm','md:text-md','lg:text-lg');
-      interestsDiv.textContent = `> ${interest.interest_area}`;      
-      container.appendChild(interestsDiv);
-    });
-  } else {
-    container.textContent = 'No areas of interests data available.';
-  }
-}
-
 function displayExtracurricularActivities(extracurricularActivitiesData, containerId) {
   const container = document.getElementById(containerId); // Re-select inside here
   if (!container) return;
@@ -595,7 +578,6 @@ async function initializeMyInfoContent() {
     fetchAndDisplayCards('education', 'education-container', displayEducation),
     fetchAndDisplayCards('projects', 'projects-container', displayProjects),
     fetchAndDisplayCards('technical_skills', 'skills-container', displaySkills),
-    fetchAndDisplayCards('areas_of_interest', 'areas-of-interest-container', displayInterestAreas),
     //fetchAndDisplayCards('publication', 'publication-container', displayPublication),
     fetchAndDisplayCards('certificates', 'certificates-container', displayCertificates),
     fetchAndDisplayCards('extracurricular_activities', 'extracurricular-container', displayExtracurricularActivities),
