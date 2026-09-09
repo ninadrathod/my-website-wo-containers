@@ -532,6 +532,45 @@ function displayCertificates(certificatesData, containerId) {
   }
 }
 
+function displayAwards(awardsData, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+  container.classList.add('text-center','text-gray-800');
+
+  let cntr = 0;
+  const awardsDataLen = awardsData.length;
+  if (awardsData && awardsData.length > 0) {
+    awardsData.forEach(awardItem => {
+      const award_li = document.createElement('div');
+
+      const award_title = document.createElement('p');
+      award_title.classList.add('montserrat-regular','text-sm','md:text-md','lg:text-base');
+      award_title.textContent = awardItem.award_title;
+
+      const award_org = document.createElement('p');
+      award_org.classList.add('montserrat-light','text-sm','md:text-md','lg:text-base');
+      award_org.textContent = awardItem.institution_or_organization;
+
+      const award_year = document.createElement('p');
+      award_year.classList.add('montserrat-extralight','text-sm','md:text-md','lg:text-base');
+      award_year.textContent = awardItem.year_of_recognition;
+
+      const bottomSeparator = document.createElement('hr');
+      bottomSeparator.classList.add('w-[10%]','mx-auto','my-[4%]','opacity-70','border-gray-400');
+
+      award_li.appendChild(award_title);
+      award_li.appendChild(award_org);
+      award_li.appendChild(award_year);
+      if (cntr < awardsDataLen - 1) { award_li.appendChild(bottomSeparator); }
+      cntr++;
+      container.appendChild(award_li);
+    });
+  } else {
+    container.textContent = 'No awards data available.';
+  }
+}
+
 // ------------ End of helper functions for my data --------------------------
 
 // ======================= DOMContentLoaded Listener ============================
@@ -581,6 +620,7 @@ async function initializeMyInfoContent() {
     //fetchAndDisplayCards('publication', 'publication-container', displayPublication),
     fetchAndDisplayCards('certificates', 'certificates-container', displayCertificates),
     fetchAndDisplayCards('extracurricular_activities', 'extracurricular-container', displayExtracurricularActivities),
-    fetchAndDisplayCards('positions_of_responsibilities', 'por-container', displayPOR)
+    fetchAndDisplayCards('positions_of_responsibilities', 'por-container', displayPOR),
+    fetchAndDisplayCards('awards_and_recognitions', 'awards-container', displayAwards)
   ]);
 }
