@@ -8,9 +8,11 @@
       "role_summary": "As a Release Engineer, I support cloud build and test infrastructure for internal product teams, focusing on CI/CD automation, pipeline reliability, and release readiness. I work across build, test, and deployment workflows, partnering with development and operations to surface failures early and keep releases unblocked.",
       "highlights": [
         "I support cloud build and test infrastructure covering build, test, and deployment for internal product teams.",
+        "I developed and deployed a database for our team's failure-investigation AI agent — used by 30+ Release Engineers — that stores investigations and corrections across users so the agent improves over time.",
         "I automate CI/CD with GitHub Actions, Docker, Python, and shell — including validation, stalled-build alerts, and unit tests for internal tools.",
         "I built Python monitoring and alerting on main-branch merges so failures show up before they block a release.",
-        "I built internal dashboards for pipeline health and failure trends, and I debug pipeline issues with development and operations."
+        "I contributed to our team's internal dashboards for pipeline health and failure trends, and I debug pipeline issues with development and operations.",
+        "I delivered a script that detects stalled builds in the CI pipeline."
       ]
     },
     {
