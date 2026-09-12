@@ -5,6 +5,7 @@
       "Location": "Hyderabad, India",
       "Role": "Release Engineer 2",
       "from_month_year": "July 2023",
+      "role_summary": "As a Release Engineer, I support cloud build and test infrastructure for internal product teams, focusing on CI/CD automation, pipeline reliability, and release readiness. I work across build, test, and deployment workflows, partnering with development and operations to surface failures early and keep releases unblocked.",
       "highlights": [
         "I support cloud build and test infrastructure covering build, test, and deployment for internal product teams.",
         "I automate CI/CD with GitHub Actions, Docker, Python, and shell — including validation, stalled-build alerts, and unit tests for internal tools.",
@@ -19,6 +20,7 @@
       "Role": "Systems Engineer",
       "from_month_year": "June 2018",
       "to_month_year": "August 2020",
+      "role_summary": "As a Systems Engineer, I focused on production reliability and automation, serving as the SME and single point of contact for critical incidents. I built monitoring and alerting across ServiceNow, Slack, and Splunk, and partnered with application and infrastructure teams on root-cause analysis and preventive fixes.",
       "highlights": [
         "I was the automation SME and SPOC for production issues, coordinating investigation and fixes across teams.",
         "I built a Python automation that watched ServiceNow for critical incidents and posted alerts to Slack to avoid SLA breaches.",
@@ -33,6 +35,7 @@
         "Role": "Inplant Trainee",
         "from_month_year": "April 2017",
         "to_month_year": "May 2017",
+        "role_summary": "As an Inplant Trainee, I contributed to a web application that tracked vendor consultants and shortlisted candidates based on client requirements and skillsets. I worked across the ASP.NET and VB.NET front end with a Microsoft SQL Server backend during this short internship.",
         "highlights": [
           "I worked on a web app that tracked vendor consultants and shortlisted them by client requirements and skillsets.",
           "Front end was ASP.NET with VB.NET; the backend ran on Microsoft SQL Server."

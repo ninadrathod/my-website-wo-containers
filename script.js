@@ -237,6 +237,13 @@ function displayWorkExperience(workExperienceData, containerId) {
       experienceDiv.appendChild(durationPara);
       experienceDiv.appendChild(rolePara);
 
+      if (experience.role_summary) {
+        const summaryPara = document.createElement('p');
+        summaryPara.classList.add('card-role-summary', 'montserrat-light', 'text-xs', 'md:text-sm', 'lg:text-md');
+        summaryPara.textContent = experience.role_summary;
+        experienceDiv.appendChild(summaryPara);
+      }
+
       if (highlights.length > 0) {
         const highlightsList = document.createElement('ul');
         highlightsList.classList.add('card-highlights', 'montserrat-light', 'text-xs', 'md:text-sm', 'lg:text-md');

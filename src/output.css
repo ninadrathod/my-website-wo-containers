@@ -1363,6 +1363,13 @@ html.lenis, html.lenis body {
       width: 30%;
     }
   }
+  .card-role-summary {
+    margin-top: calc(var(--spacing) * 3);
+    width: 100%;
+    text-align: left;
+    line-height: 1.375;
+    opacity: 0.9;
+  }
   .card-highlights {
     margin-top: calc(var(--spacing) * 3);
     width: 100%;

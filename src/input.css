@@ -215,6 +215,10 @@ html.lenis body {
         @apply flex flex-col justify-start p-[3%] rounded-2xl w-[85%] md:w-[75%] lg:w-[30%] mx-5 border-1 border-gray-400 hover:bg-light-purple hover:border-palette-mid-dark-purple hover:text-dark-purple hover:shadow-2xl hover:scale-105 transition-all duration-100 ease-in-out;
     }
 
+    .card-role-summary {
+        @apply mt-3 w-full text-left leading-snug opacity-90;
+    }
+
     .card-highlights {
         @apply mt-3 w-full text-left list-disc pl-5;
     }
