@@ -111,7 +111,7 @@
       "type": "Independent",
       "course_or_domain": "Domain: Image Processing & Full-stack",
       "project_description": "The Local Studio is a local-first image editor that applies JSON-defined filter presets to uploaded photos—entirely on your machine, with no hosted cloud app. Users browse a searchable preset gallery with before/after previews, upload an image, and a FastAPI backend runs an ordered filter pipeline (including subject extraction via rembg) to return an edited PNG. Preset metadata lives in SQLite, while filter steps are versioned JSON under the presets catalog. One-command setup/run scripts, a GitHub Pages pitch site, and service-function unit tests keep the project easy to fork and run locally.",
-      "link": "https://github.com/ninadrathod/local-studio"
+      "link": "https://local-studio.meverse.in/"
     },
     {
       "category": "projects",
